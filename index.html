@@ -3,270 +3,589 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parrilladas Andreita</title>
+<title>Parrilladas Andreita | Comida criolla y asados en Machala</title>
+<meta name="description" content="Parrilladas Andreita - Comida criolla, costillas BBQ y asados al carbón en Machala. Servicio a domicilio. 4.4★ con 109 opiniones.">
 <style>
   :root {
-    --brand: #b23a1f;
-    --brand-dark: #7a2714;
-    --bg: #fdf6f0;
+    --brand: #d2491f;
+    --brand-dark: #8f2f12;
+    --brand-light: #ffb067;
+    --accent: #2f7d4f;
+    --bg: #fff8f2;
+    --card: #ffffff;
     --text: #2b2420;
+    --muted: #8a7a6f;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--bg);
     color: var(--text);
   }
-  header {
-    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  a { text-decoration: none; color: inherit; }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,248,242,0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid #f0e2d3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+  }
+  nav .brand {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--brand-dark);
+  }
+  nav .links {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  nav .links a:hover { color: var(--brand); }
+  nav .cta-btn {
+    background: #25D366;
     color: #fff;
-    padding: 48px 20px;
-    text-align: center;
-  }
-  header h1 {
-    margin: 0 0 8px;
-    font-size: 2.2rem;
-  }
-  header p {
-    margin: 4px 0;
-    opacity: 0.9;
-  }
-  .rating {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border-radius: 20px;
-    padding: 6px 16px;
-    margin-top: 12px;
-    font-weight: bold;
-  }
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 32px 20px;
-  }
-  section {
-    margin-bottom: 36px;
-  }
-  h2 {
-    color: var(--brand-dark);
-    border-bottom: 2px solid var(--brand);
-    padding-bottom: 6px;
-  }
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .info-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 16px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  }
-  .info-card strong {
-    display: block;
-    color: var(--brand-dark);
-    margin-bottom: 4px;
-  }
-  .placeholder {
-    background: #fff;
-    border: 2px dashed #ccc;
-    border-radius: 10px;
-    padding: 24px;
-    text-align: center;
-    color: #888;
-  }
-  .review {
-    background: #fff;
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  }
-  .review .author {
-    font-weight: bold;
-    color: var(--brand-dark);
-  }
-  .review .meta {
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-weight: 700;
     font-size: 0.85rem;
-    color: #888;
+    white-space: nowrap;
+  }
+  @media (max-width: 700px) {
+    nav .links { display: none; }
+  }
+
+  /* HERO */
+  header.hero {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 40%),
+      linear-gradient(135deg, var(--brand), var(--brand-dark));
+    color: #fff;
+    padding: 70px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header.hero::before {
+    content: "🔥 🍖 🌽 🥩 🔥";
+    position: absolute;
+    top: 10px; left: 0; right: 0;
+    font-size: 1.4rem;
+    opacity: 0.25;
+    letter-spacing: 30px;
+    white-space: nowrap;
+  }
+  header.hero h1 {
+    margin: 0 0 10px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  header.hero .tagline {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    margin: 0 0 20px;
+    font-weight: 500;
+  }
+  .badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 7px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .cta-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 2px solid #fff;
+  }
+
+  /* SECTIONS */
+  main { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 60px 0; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  h2.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--brand-dark);
     margin-bottom: 8px;
   }
-  .menu-category {
+  p.section-sub {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+
+  /* WHY US */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 18px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .why-card .icon { font-size: 2.2rem; margin-bottom: 10px; }
+  .why-card h3 { margin: 0 0 6px; color: var(--brand-dark); font-size: 1.05rem; }
+  .why-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+  /* FEATURED DISH */
+  .featured {
+    background: linear-gradient(120deg, #2b1a10, #3e2415);
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .featured .emoji { font-size: 3.5rem; }
+  .featured h3 {
+    margin: 0 0 6px;
+    color: var(--brand-light);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .featured blockquote {
+    margin: 0 0 10px;
+    font-size: 1.15rem;
+    font-style: italic;
+  }
+  .featured cite { color: var(--brand-light); font-style: normal; font-size: 0.9rem; }
+
+  /* MENU */
+  .menu-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  .menu-tab {
     background: #fff;
-    border-radius: 10px;
-    padding: 18px 20px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: 2px solid #f0e2d3;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.15s ease;
+  }
+  .menu-tab:hover { border-color: var(--brand); color: var(--brand); }
+  .menu-tab.active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+  }
+  .menu-panel { display: none; }
+  .menu-panel.active { display: block; }
+  .menu-category {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
   }
   .menu-category h3 {
-    margin: 0 0 4px;
-    color: var(--brand);
+    margin: 0 0 2px;
+    color: var(--brand-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .menu-note {
-    font-size: 0.85rem;
-    color: #888;
-    margin: 0 0 12px;
-  }
+  .menu-note { font-size: 0.85rem; color: var(--muted); margin: 0 0 14px; }
   .menu-item {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px dashed #eee;
-    padding: 6px 0;
+    align-items: baseline;
+    border-bottom: 1px dashed #f0e2d3;
+    padding: 9px 0;
   }
-  .menu-item .name {
-    font-weight: 600;
-  }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item .name { font-weight: 600; }
   .menu-item .price {
-    color: var(--brand-dark);
-    font-weight: bold;
+    color: var(--brand);
+    font-weight: 800;
     white-space: nowrap;
     padding-left: 12px;
   }
+
+  /* PHOTOS */
+  .photo-placeholder {
+    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #fdf0e4 10px, #fdf0e4 20px);
+    border: 2px dashed #e8c9ac;
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--muted);
+  }
+  .photo-placeholder .icon { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+
+  /* REVIEWS */
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+  }
+  .review-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    position: relative;
+  }
+  .review-card .stars { color: #f0a500; margin-bottom: 8px; font-size: 0.95rem; }
+  .review-card p { font-size: 0.92rem; color: var(--text); margin: 0 0 12px; }
+  .review-card .author { font-weight: 700; color: var(--brand-dark); font-size: 0.9rem; }
+  .review-card .meta { font-size: 0.78rem; color: var(--muted); }
+
+  /* VISIT / CONTACT */
+  .visit-box {
+    background: linear-gradient(135deg, var(--brand-dark), #4a1a0a);
+    color: #fff;
+    border-radius: 20px;
+    padding: 40px 28px;
+    text-align: center;
+  }
+  .visit-box h2 { color: #fff; }
+  .visit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 28px 0;
+    text-align: left;
+  }
+  @media (max-width: 600px) { .visit-grid { grid-template-columns: 1fr; } }
+  .visit-item {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .visit-item strong { display: block; color: var(--brand-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+
+  /* FLOATING WHATSAPP */
+  .floating-wa {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    background: #25D366;
+    color: #fff;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    z-index: 200;
+    animation: pulse 2.4s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+    70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+  }
+
   footer {
     text-align: center;
-    padding: 20px;
-    color: #888;
-    font-size: 0.85rem;
+    padding: 28px 20px 100px;
+    color: var(--muted);
+    font-size: 0.82rem;
   }
 </style>
 </head>
 <body>
 
-<header>
+<nav>
+  <span class="brand">🔥 Parrilladas Andreita</span>
+  <div class="links">
+    <a href="#menu">Menú</a>
+    <a href="#opiniones">Opiniones</a>
+    <a href="#visitanos">Visítanos</a>
+  </div>
+  <a class="cta-btn" href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener">Pedir ahora</a>
+</nav>
+
+<header class="hero">
   <h1>Parrilladas Andreita</h1>
-  <p>Restaurante · Comida criolla y asados</p>
-  <span class="rating">⭐ 4.4 (109 opiniones)</span>
+  <p class="tagline">Sabor criollo y asados al carbón en el corazón de Machala</p>
+  <div class="badge-row">
+    <span class="badge">⭐ 4.4 · 109 opiniones</span>
+    <span class="badge">🛵 Servicio a domicilio</span>
+    <span class="badge">📍 Av. Ferroviaria, Machala</span>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
+    <a class="btn btn-secondary" href="#menu">Ver menú</a>
+  </div>
 </header>
 
 <main>
-  <section>
-    <h2>Información</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <strong>Dirección</strong>
-        P3M4+45P, Av. Ferroviaria, Machala
+
+  <section class="reveal">
+    <h2 class="section-title">¿Por qué Andreita?</h2>
+    <p class="section-sub">Lo que nuestros clientes repiten una y otra vez</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">😋</div>
+        <h3>Sabor casero</h3>
+        <p>Comida criolla y asados preparados como en casa, con recetas tradicionales ecuatorianas.</p>
       </div>
-      <div class="info-card">
-        <strong>Teléfono</strong>
-        (07) 298-2475
+      <div class="why-card">
+        <div class="icon">💛</div>
+        <h3>Atención de familia</h3>
+        <p>"Las dueñas son muy atentas, amables y siempre te reciben con una sonrisa" — Eliza M.</p>
       </div>
-      <div class="info-card">
-        <strong>Horario</strong>
-        Martes a Domingo · 5pm a 11pm
-      </div>
-      <div class="info-card">
-        <strong>Precio aproximado</strong>
-        $5 - $10 por persona
-      </div>
-      <div class="info-card">
-        <strong>Servicio a domicilio</strong>
-        0969498991
-      </div>
-      <div class="info-card">
-        <strong>Instagram</strong>
-        @parrilladasandreita
+      <div class="why-card">
+        <div class="icon">🛵</div>
+        <h3>Llega a tu puerta</h3>
+        <p>Servicio a domicilio disponible todos los días que abrimos, de 5pm a 11pm.</p>
       </div>
     </div>
   </section>
 
-  <section>
-    <h2>Fotos</h2>
-    <div class="placeholder">
-      Aquí irán las fotos del restaurante (pendiente de recibirlas).
+  <section class="reveal">
+    <div class="featured">
+      <div class="emoji">🍖</div>
+      <div>
+        <h3>Plato estrella</h3>
+        <blockquote>"Las costillas a la barbacoa son un manjar. Que debes probar."</blockquote>
+        <cite>— Eliza Malmont, Local Guide (53 opiniones)</cite>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Menú</h2>
+  <section id="menu" class="reveal">
+    <h2 class="section-title">Nuestro menú</h2>
+    <p class="section-sub">Martes a domingo · 5pm a 11pm</p>
 
-    <div class="menu-category">
-      <h3>Menú Criollo</h3>
-      <p class="menu-note">Acompañado de moros de lenteja o arroz amarillo, patacones, lechuga, aguacate y yuca.</p>
-      <div class="menu-item"><span class="name">Seco de Gallina</span><span class="price">$9,50</span></div>
-      <div class="menu-item"><span class="name">Seco de Carne (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-      <div class="menu-item"><span class="name">Carne Guisada (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-      <div class="menu-item"><span class="name">Lengua Guisada (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-      <div class="menu-item"><span class="name">Aguado de Gallina (con patacones)</span><span class="price">$5,00</span></div>
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-tab="criollo">Criollo</button>
+      <button class="menu-tab" data-tab="parrillero">Parrillero</button>
+      <button class="menu-tab" data-tab="costillas">Costillas BBQ</button>
+      <button class="menu-tab" data-tab="asados">Asados Mixtos</button>
+      <button class="menu-tab" data-tab="banderas">Banderas</button>
+      <button class="menu-tab" data-tab="extras">Adicionales</button>
+      <button class="menu-tab" data-tab="bebidas">Bebidas</button>
     </div>
 
-    <div class="menu-category">
-      <h3>Menú Parrillero</h3>
-      <p class="menu-note">Acompañado de arroz con menestra y patacones.</p>
-      <div class="menu-item"><span class="name">Carne Asada de Res (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-      <div class="menu-item"><span class="name">Lomo de Cerdo (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-      <div class="menu-item"><span class="name">Filete de Pechuga (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-      <div class="menu-item"><span class="name">Chuleta de Chancho (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+    <div class="menu-panel active" id="panel-criollo">
+      <div class="menu-category">
+        <h3>🍗 Menú Criollo</h3>
+        <p class="menu-note">Acompañado de moros de lenteja o arroz amarillo, patacones, lechuga, aguacate y yuca.</p>
+        <div class="menu-item"><span class="name">Seco de Gallina</span><span class="price">$9,50</span></div>
+        <div class="menu-item"><span class="name">Seco de Carne (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+        <div class="menu-item"><span class="name">Carne Guisada (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+        <div class="menu-item"><span class="name">Lengua Guisada (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+        <div class="menu-item"><span class="name">Aguado de Gallina (con patacones)</span><span class="price">$5,00</span></div>
+      </div>
     </div>
 
-    <div class="menu-category">
-      <h3>Costillas Asadas en Salsa BBQ</h3>
-      <p class="menu-note">Incluye arroz con menestra, ensalada, yuca, patacones, papa chaucha y aguacate.</p>
-      <div class="menu-item"><span class="name">Personal</span><span class="price">$15,00</span></div>
-      <div class="menu-item"><span class="name">Doble</span><span class="price">$20,00</span></div>
-      <div class="menu-item"><span class="name">Familiar</span><span class="price">$30,00</span></div>
+    <div class="menu-panel" id="panel-parrillero">
+      <div class="menu-category">
+        <h3>🥩 Menú Parrillero</h3>
+        <p class="menu-note">Acompañado de arroz con menestra y patacones.</p>
+        <div class="menu-item"><span class="name">Carne Asada de Res (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+        <div class="menu-item"><span class="name">Lomo de Cerdo (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+        <div class="menu-item"><span class="name">Filete de Pechuga (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+        <div class="menu-item"><span class="name">Chuleta de Chancho (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+      </div>
     </div>
 
-    <div class="menu-category">
-      <h3>Asados Mixtos</h3>
-      <p class="menu-note">2 carnes a elección, con ensalada, yuca, patacones, aguacate y papa chaucha.</p>
-      <div class="menu-item"><span class="name">Grande</span><span class="price">$10,00</span></div>
-      <div class="menu-item"><span class="name">Pequeño</span><span class="price">$8,00</span></div>
+    <div class="menu-panel" id="panel-costillas">
+      <div class="menu-category">
+        <h3>🔥 Costillas Asadas en Salsa BBQ</h3>
+        <p class="menu-note">Incluye arroz con menestra, ensalada, yuca, patacones, papa chaucha y aguacate.</p>
+        <div class="menu-item"><span class="name">Personal</span><span class="price">$15,00</span></div>
+        <div class="menu-item"><span class="name">Doble</span><span class="price">$20,00</span></div>
+        <div class="menu-item"><span class="name">Familiar</span><span class="price">$30,00</span></div>
+      </div>
     </div>
 
-    <div class="menu-category">
-      <h3>Banderas</h3>
-      <p class="menu-note">Acompañado de moros de lenteja o arroz amarillo, patacones, lechuga, aguacate y yuca.</p>
-      <div class="menu-item"><span class="name">2 secos a elección</span><span class="price">$16,00</span></div>
+    <div class="menu-panel" id="panel-asados">
+      <div class="menu-category">
+        <h3>🍢 Asados Mixtos</h3>
+        <p class="menu-note">2 carnes a elección, con ensalada, yuca, patacones, aguacate y papa chaucha.</p>
+        <div class="menu-item"><span class="name">Grande</span><span class="price">$10,00</span></div>
+        <div class="menu-item"><span class="name">Pequeño</span><span class="price">$8,00</span></div>
+      </div>
     </div>
 
-    <div class="menu-category">
-      <h3>Adicionales</h3>
-      <div class="menu-item"><span class="name">Arroz con menestra (pequeño)</span><span class="price">$3,50</span></div>
-      <div class="menu-item"><span class="name">Arroz con menestra (grande)</span><span class="price">$5,00</span></div>
-      <div class="menu-item"><span class="name">Porción de patacones</span><span class="price">$1,50</span></div>
-      <div class="menu-item"><span class="name">Porción de menestra (medio litro)</span><span class="price">$3,00</span></div>
-      <div class="menu-item"><span class="name">Porción de menestra (1 litro)</span><span class="price">$6,00</span></div>
-      <div class="menu-item"><span class="name">Porción de ensalada</span><span class="price">$1,50</span></div>
+    <div class="menu-panel" id="panel-banderas">
+      <div class="menu-category">
+        <h3>🇪🇨 Banderas</h3>
+        <p class="menu-note">Acompañado de moros de lenteja o arroz amarillo, patacones, lechuga, aguacate y yuca.</p>
+        <div class="menu-item"><span class="name">2 secos a elección</span><span class="price">$16,00</span></div>
+      </div>
     </div>
 
-    <div class="menu-category">
-      <h3>Bebidas</h3>
-      <div class="menu-item"><span class="name">Horchata (vaso)</span><span class="price">$1,50</span></div>
-      <div class="menu-item"><span class="name">Horchata (jarra pequeña)</span><span class="price">$3,00</span></div>
-      <div class="menu-item"><span class="name">Horchata (jarra grande)</span><span class="price">$6,00</span></div>
-      <div class="menu-item"><span class="name">Cola</span><span class="price">$1,00</span></div>
-      <div class="menu-item"><span class="name">Agua sin gas</span><span class="price">$1,00</span></div>
+    <div class="menu-panel" id="panel-extras">
+      <div class="menu-category">
+        <h3>🍚 Adicionales</h3>
+        <div class="menu-item"><span class="name">Arroz con menestra (pequeño)</span><span class="price">$3,50</span></div>
+        <div class="menu-item"><span class="name">Arroz con menestra (grande)</span><span class="price">$5,00</span></div>
+        <div class="menu-item"><span class="name">Porción de patacones</span><span class="price">$1,50</span></div>
+        <div class="menu-item"><span class="name">Porción de menestra (medio litro)</span><span class="price">$3,00</span></div>
+        <div class="menu-item"><span class="name">Porción de menestra (1 litro)</span><span class="price">$6,00</span></div>
+        <div class="menu-item"><span class="name">Porción de ensalada</span><span class="price">$1,50</span></div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="panel-bebidas">
+      <div class="menu-category">
+        <h3>🥤 Bebidas</h3>
+        <div class="menu-item"><span class="name">Horchata (vaso)</span><span class="price">$1,50</span></div>
+        <div class="menu-item"><span class="name">Horchata (jarra pequeña)</span><span class="price">$3,00</span></div>
+        <div class="menu-item"><span class="name">Horchata (jarra grande)</span><span class="price">$6,00</span></div>
+        <div class="menu-item"><span class="name">Cola</span><span class="price">$1,00</span></div>
+        <div class="menu-item"><span class="name">Agua sin gas</span><span class="price">$1,00</span></div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Opiniones de clientes</h2>
-
-    <div class="review">
-      <div class="author">Ram Laramie</div>
-      <div class="meta">8 opiniones · 10 fotos · hace un mes</div>
-      <p>"La lengua más deliciosa que hemos probado, y dan bien puesto. Un poco más y no hay foto de lo que casi me termino. Por cierto, muy buena atención de la dueña."</p>
-    </div>
-
-    <div class="review">
-      <div class="author">Eliza Malmont</div>
-      <div class="meta">Local Guide · 53 opiniones · 47 fotos · hace 2 años</div>
-      <p>"El restaurante es totalmente acogedor en toda la avenida principal de la Ferroviaria. Las dueñas son muy atentas, amables y siempre te reciben con una sonrisa. Las costillas a la barbacoa son un manjar. Además de ese plato, te ofrecen comida criolla."</p>
-    </div>
-
-    <div class="review">
-      <div class="author">Alberto Aguilera</div>
-      <div class="meta">Local Guide · 78 opiniones · hace 4 meses</div>
-      <p>"Excelente comida y atención. Precio por persona: $5-10."</p>
+  <section class="reveal">
+    <h2 class="section-title">Fotos</h2>
+    <p class="section-sub">Pronto vas a poder ver nuestros platos aquí</p>
+    <div class="photo-placeholder">
+      <span class="icon">📸</span>
+      Galería de fotos en camino — síguenos en Instagram @parrilladasandreita mientras tanto.
     </div>
   </section>
+
+  <section id="opiniones" class="reveal">
+    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    <p class="section-sub">⭐ 4.4 de 5 · 109 opiniones en Google</p>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"La lengua más deliciosa que hemos probado, y dan bien puesto. Por cierto, muy buena atención de la dueña."</p>
+        <div class="author">Ram Laramie</div>
+        <div class="meta">8 opiniones · 10 fotos · hace un mes</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"El restaurante es totalmente acogedor. Las dueñas son muy atentas, amables y siempre te reciben con una sonrisa. Las costillas a la barbacoa son un manjar."</p>
+        <div class="author">Eliza Malmont</div>
+        <div class="meta">Local Guide · 53 opiniones · hace 2 años</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Excelente comida y atención. Precio por persona: $5-10."</p>
+        <div class="author">Alberto Aguilera</div>
+        <div class="meta">Local Guide · 78 opiniones · hace 4 meses</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visitanos" class="reveal">
+    <div class="visit-box">
+      <h2 class="section-title">Visítanos</h2>
+      <p class="section-sub" style="color:#f3d9c4">Te esperamos de martes a domingo</p>
+      <div class="visit-grid">
+        <div class="visit-item">
+          <strong>Dirección</strong>
+          P3M4+45P, Av. Ferroviaria, Machala
+        </div>
+        <div class="visit-item">
+          <strong>Horario</strong>
+          Martes a Domingo · 5pm a 11pm
+        </div>
+        <div class="visit-item">
+          <strong>Teléfono</strong>
+          (07) 298-2475
+        </div>
+        <div class="visit-item">
+          <strong>Delivery</strong>
+          0969498991
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
+        <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=P3M4%2B45P+Machala" target="_blank" rel="noopener">📍 Cómo llegar</a>
+        <a class="btn btn-secondary" href="https://instagram.com/parrilladasandreita" target="_blank" rel="noopener">📷 Instagram</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<a class="floating-wa" href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">💬</a>
+
 <footer>
-  Página de práctica · Datos basados en opiniones públicas
+  Parrilladas Andreita · Comida criolla y asados en Machala · Página de promoción
 </footer>
+
+<script>
+  // Tabs del menú
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Animación de aparición al hacer scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
