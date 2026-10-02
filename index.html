@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parrilladas Andreita</title>
+<style>
+  :root {
+    --brand: #b23a1f;
+    --brand-dark: #7a2714;
+    --bg: #fdf6f0;
+    --text: #2b2420;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    color: #fff;
+    padding: 48px 20px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 2.2rem;
+  }
+  header p {
+    margin: 4px 0;
+    opacity: 0.9;
+  }
+  .rating {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-top: 12px;
+    font-weight: bold;
+  }
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    margin-bottom: 36px;
+  }
+  h2 {
+    color: var(--brand-dark);
+    border-bottom: 2px solid var(--brand);
+    padding-bottom: 6px;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .info-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .info-card strong {
+    display: block;
+    color: var(--brand-dark);
+    margin-bottom: 4px;
+  }
+  .placeholder {
+    background: #fff;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    color: #888;
+  }
+  .review {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .review .author {
+    font-weight: bold;
+    color: var(--brand-dark);
+  }
+  .review .meta {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Parrilladas Andreita</h1>
+  <p>Restaurante · Comida criolla y asados</p>
+  <span class="rating">⭐ 4.4 (109 opiniones)</span>
+</header>
+
+<main>
+  <section>
+    <h2>Información</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <strong>Dirección</strong>
+        P3M4+45P, Av. Ferroviaria, Machala
+      </div>
+      <div class="info-card">
+        <strong>Teléfono</strong>
+        (07) 298-2475
+      </div>
+      <div class="info-card">
+        <strong>Horario</strong>
+        Abierto · Cierra a las 5 p.m.
+      </div>
+      <div class="info-card">
+        <strong>Precio aproximado</strong>
+        $5 - $10 por persona
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Fotos</h2>
+    <div class="placeholder">
+      Aquí irán las fotos del restaurante (pendiente de recibirlas).
+    </div>
+  </section>
+
+  <section>
+    <h2>Menú</h2>
+    <div class="placeholder">
+      Menú pendiente de recibir. Platos mencionados por clientes: lengua, costillas a la barbacoa, comida criolla.
+    </div>
+  </section>
+
+  <section>
+    <h2>Opiniones de clientes</h2>
+
+    <div class="review">
+      <div class="author">Ram Laramie</div>
+      <div class="meta">8 opiniones · 10 fotos · hace un mes</div>
+      <p>"La lengua más deliciosa que hemos probado, y dan bien puesto. Un poco más y no hay foto de lo que casi me termino. Por cierto, muy buena atención de la dueña."</p>
+    </div>
+
+    <div class="review">
+      <div class="author">Eliza Malmont</div>
+      <div class="meta">Local Guide · 53 opiniones · 47 fotos · hace 2 años</div>
+      <p>"El restaurante es totalmente acogedor en toda la avenida principal de la Ferroviaria. Las dueñas son muy atentas, amables y siempre te reciben con una sonrisa. Las costillas a la barbacoa son un manjar. Además de ese plato, te ofrecen comida criolla."</p>
+    </div>
+
+    <div class="review">
+      <div class="author">Alberto Aguilera</div>
+      <div class="meta">Local Guide · 78 opiniones · hace 4 meses</div>
+      <p>"Excelente comida y atención. Precio por persona: $5-10."</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Página de práctica · Datos basados en opiniones públicas
+</footer>
+
+</body>
+</html>
