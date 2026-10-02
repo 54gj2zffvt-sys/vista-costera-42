@@ -3,73 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="theme-color" content="#d2491f">
-<title>Parrilladas Andreita | Comida criolla y asados en Machala</title>
-<meta name="description" content="Parrilladas Andreita - Comida criolla, costillas BBQ y asados al carbón en Machala. Servicio a domicilio. 4.4★ con 109 opiniones.">
+<meta name="theme-color" content="#140f0b">
+<title>Parrilladas de la Marcel | Comida criolla y asados en Machala</title>
+<meta name="description" content="Parrilladas de la Marcel - Comida criolla, costillas BBQ y asados al carbón en Machala. Servicio a domicilio. 4.7 de 5 con 37 opiniones.">
 <style>
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('./fonts/outfit-variable-latin.woff2') format('woff2');
+  }
+
   :root {
-    --brand: #d2491f;
-    --brand-dark: #8f2f12;
-    --brand-light: #ffb067;
-    --accent: #2f7d4f;
-    --bg: #fff8f2;
-    --card: #ffffff;
-    --text: #2b2420;
-    --muted: #8a7a6f;
+    --bg: #140f0b;
+    --bg-elevated: #1e1711;
+    --bg-elevated-2: #281f17;
+    --border: rgba(255,255,255,0.09);
+    --border-strong: rgba(255,255,255,0.18);
+    --ember: #ff7a3d;
+    --ember-solid: #c2410c;
+    --ember-light: #ffcda0;
+    --text: #f6ede3;
+    --text-muted: #a8978a;
+    --whatsapp: #25D366;
+    --whatsapp-text: #0b2615;
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   }
+
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
     width: 100%;
+    line-height: 1.5;
   }
   a { text-decoration: none; color: inherit; }
   img { max-width: 100%; display: block; }
+  svg.icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+  }
+
+  main { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 72px 0; }
+  @media (max-width: 700px) { section { padding: 52px 0; } }
+
+  h1, h2, h3 { font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 
   /* NAV */
   nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255,248,242,0.95);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid #f0e2d3;
+    background: rgba(20,15,11,0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    padding: 12px 16px;
+    padding: 12px 20px;
+    height: 68px;
   }
   nav .brand {
-    font-weight: 800;
-    font-size: 1.2rem;
-    color: var(--brand-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
   }
+  nav .brand .icon { color: var(--ember); font-size: 1.2em; }
   nav .links {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 500;
+    color: var(--text-muted);
   }
   nav .links a { transition: color 150ms ease; }
   @media (hover: hover) and (pointer: fine) {
-    nav .links a:hover { color: var(--brand); }
+    nav .links a:hover { color: var(--text); }
   }
   nav .cta-btn {
-    background: #25D366;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 24px;
+    background: var(--whatsapp);
+    color: var(--whatsapp-text);
+    padding: 9px 18px;
+    border-radius: 999px;
     font-weight: 700;
     font-size: 0.85rem;
     white-space: nowrap;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     transition: transform 150ms var(--ease-out);
   }
   nav .cta-btn:active { transform: scale(0.95); }
@@ -77,89 +114,106 @@
     nav .links { display: none; }
   }
   @media (max-width: 420px) {
-    nav .brand { font-size: 1rem; }
+    nav .brand span.label { font-size: 0.92rem; }
     nav .cta-btn { padding: 8px 12px; font-size: 0.78rem; }
   }
 
   /* HERO */
   header.hero {
-    background:
-      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 40%),
-      linear-gradient(135deg, var(--brand), var(--brand-dark));
-    color: #fff;
-    padding: 70px 20px 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 40px;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 56px 20px 64px;
   }
-  header.hero::before {
-    content: "🔥 🍖 🌽 🥩 🔥";
-    position: absolute;
-    top: 10px; left: 0; right: 0;
-    font-size: 1.4rem;
-    opacity: 0.25;
-    letter-spacing: 30px;
-    white-space: nowrap;
+  @media (max-width: 860px) {
+    header.hero { grid-template-columns: 1fr; padding-top: 40px; text-align: left; }
   }
-  header.hero h1 {
-    margin: 0 0 10px;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  }
-  header.hero .tagline {
-    font-size: 1.15rem;
-    opacity: 0.95;
-    margin: 0 0 20px;
-    font-weight: 500;
-  }
-  .badge-row {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
-  }
-  .badge {
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    padding: 7px 16px;
+  .hero-content .rating-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ember-light);
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .hero-content .rating-strip .stars { display: inline-flex; gap: 2px; color: var(--ember); }
+  .hero-content h1 {
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .hero-content .tagline {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 46ch;
+    margin: 0 0 28px;
+    line-height: 1.5;
   }
   .cta-row {
     display: flex;
-    justify-content: center;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
   }
   .btn {
-    display: inline-block;
-    padding: 14px 28px;
-    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border-radius: 999px;
     font-weight: 700;
-    font-size: 1rem;
-    transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+    font-size: 0.96rem;
+    transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background-color 160ms var(--ease-out);
+    white-space: nowrap;
   }
   @media (hover: hover) and (pointer: fine) {
     .btn:hover { transform: translateY(-2px); }
   }
   .btn:active { transform: scale(0.97); }
-  .btn-primary {
-    background: #25D366;
-    color: #fff;
-    box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+  .btn-whatsapp {
+    background: var(--whatsapp);
+    color: var(--whatsapp-text);
+    box-shadow: 0 8px 24px rgba(37,211,102,0.25);
   }
-  .btn-secondary {
-    background: rgba(255,255,255,0.15);
-    color: #fff;
-    border: 2px solid #fff;
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--border-strong);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-outline:hover { border-color: var(--ember); color: var(--ember-light); }
   }
 
-  /* SECTIONS */
-  main { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-  section { padding: 60px 0; }
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 32px;
+    overflow: hidden;
+    background:
+      repeating-linear-gradient(0deg, rgba(255,122,61,0.07) 0px, rgba(255,122,61,0.07) 1px, transparent 1px, transparent 28px),
+      radial-gradient(circle at 50% 45%, rgba(255,122,61,0.35), transparent 60%),
+      linear-gradient(160deg, #241910, #140f0b 70%);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-visual .flame-mark {
+    width: 34%;
+    height: 34%;
+    color: var(--ember);
+    filter: drop-shadow(0 0 40px rgba(255,122,61,0.45));
+  }
+  @media (max-width: 860px) {
+    .hero-visual { aspect-ratio: 16 / 10; order: -1; }
+  }
+
+  /* REVEAL */
   .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -170,116 +224,134 @@
     .reveal { transform: none; transition: opacity 400ms ease; }
   }
 
-  .reveal.visible .why-grid .why-card,
-  .reveal.visible .review-grid .review-card {
-    animation: cardIn 450ms var(--ease-out) backwards;
-  }
-  .why-grid .why-card:nth-child(1), .review-grid .review-card:nth-child(1) { animation-delay: 60ms; }
-  .why-grid .why-card:nth-child(2), .review-grid .review-card:nth-child(2) { animation-delay: 120ms; }
-  .why-grid .why-card:nth-child(3), .review-grid .review-card:nth-child(3) { animation-delay: 180ms; }
-  @keyframes cardIn {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal.visible .why-grid .why-card,
-    .reveal.visible .review-grid .review-card { animation: none; }
-  }
-
   h2.section-title {
-    text-align: center;
-    font-size: 1.8rem;
-    color: var(--brand-dark);
-    margin-bottom: 8px;
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    color: var(--text);
+    margin-bottom: 10px;
   }
   p.section-sub {
-    text-align: center;
-    color: var(--muted);
-    margin-bottom: 36px;
+    color: var(--text-muted);
+    margin: 0 0 32px;
+    max-width: 52ch;
+    font-size: 0.98rem;
   }
 
-  /* WHY US */
-  .why-grid {
+  /* WHY US: BENTO */
+  .why-bento {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
   }
-  @media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; } }
-  .why-card {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 24px 18px;
-    text-align: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+  @media (max-width: 760px) {
+    .why-bento { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .why-bento .cell-large { grid-row: auto; }
+  }
+  .why-cell {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out);
   }
   @media (hover: hover) and (pointer: fine) {
-    .why-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.1); }
+    .why-cell:hover { transform: translateY(-3px); border-color: var(--border-strong); }
   }
-  .why-card .icon { font-size: 2.2rem; margin-bottom: 10px; }
-  .why-card h3 { margin: 0 0 6px; color: var(--brand-dark); font-size: 1.05rem; }
-  .why-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
-
-  /* FEATURED DISH */
-  .featured {
-    background: linear-gradient(120deg, #2b1a10, #3e2415);
-    color: #fff;
-    border-radius: 20px;
-    padding: 36px 28px;
+  .why-cell.cell-large { grid-row: 1 / 3; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(160deg, var(--bg-elevated-2), var(--bg-elevated)); }
+  .why-cell .icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255,122,61,0.14);
+    color: var(--ember);
     display: flex;
     align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
   }
-  .featured .emoji { font-size: 3.5rem; }
-  .featured h3 {
-    margin: 0 0 6px;
-    color: var(--brand-light);
-    font-size: 1.1rem;
+  .why-cell h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--text); }
+  .why-cell p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; }
+  .why-cell.cell-large p.quote { font-size: 1.05rem; color: var(--text); font-style: italic; line-height: 1.5; }
+  .why-cell.cell-large .attrib { display: block; margin-top: 10px; color: var(--text-muted); font-size: 0.85rem; font-style: normal; }
+
+  .reveal.visible .why-bento .why-cell {
+    animation: cardIn 450ms var(--ease-out) backwards;
+  }
+  .why-bento .cell-large { animation-delay: 0ms; }
+  .why-bento .cell-1 { animation-delay: 80ms; }
+  .why-bento .cell-2 { animation-delay: 160ms; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal.visible .why-bento .why-cell { animation: none; }
+  }
+
+  /* FEATURED DISH - full bleed */
+  .featured-wrap {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background:
+      repeating-linear-gradient(0deg, rgba(255,122,61,0.05) 0px, rgba(255,122,61,0.05) 1px, transparent 1px, transparent 24px),
+      linear-gradient(135deg, #2a1a0f, #140f0b 75%);
+    padding: 72px 20px;
+  }
+  .featured-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .featured-inner svg.icon { width: 2.4rem; height: 2.4rem; color: var(--ember); margin-bottom: 20px; }
+  .featured-inner .label {
+    color: var(--ember-light);
+    font-weight: 700;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
   }
-  .featured blockquote {
-    margin: 0 0 10px;
-    font-size: 1.15rem;
-    font-style: italic;
+  .featured-inner blockquote {
+    margin: 0 0 18px;
+    font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text);
   }
-  .featured cite { color: var(--brand-light); font-style: normal; font-size: 0.9rem; }
+  .featured-inner .attrib { color: var(--text-muted); font-size: 0.92rem; }
 
   /* MENU */
   .menu-tabs {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
-    justify-content: center;
     margin-bottom: 28px;
   }
   .menu-tab {
-    background: #fff;
-    border: 2px solid #f0e2d3;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
     padding: 11px 18px;
     min-height: 44px;
-    border-radius: 20px;
-    font-weight: 700;
+    border-radius: 999px;
+    font-weight: 600;
     font-size: 0.85rem;
     cursor: pointer;
-    color: var(--muted);
+    color: var(--text-muted);
+    font-family: inherit;
     transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out), transform 150ms var(--ease-out);
   }
   @media (hover: hover) and (pointer: fine) {
-    .menu-tab:hover { border-color: var(--brand); color: var(--brand); }
+    .menu-tab:hover { border-color: var(--ember); color: var(--ember-light); }
   }
   .menu-tab:active { transform: scale(0.96); }
   .menu-tab.active {
-    background: var(--brand);
-    border-color: var(--brand);
+    background: var(--ember-solid);
+    border-color: var(--ember-solid);
     color: #fff;
   }
   .menu-panel { display: none; }
-  .menu-panel.active {
-    display: block;
-    animation: panelIn 200ms var(--ease-out);
-  }
+  .menu-panel.active { display: block; animation: panelIn 200ms var(--ease-out); }
   @keyframes panelIn {
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
@@ -288,108 +360,143 @@
     .menu-panel.active { animation: none; }
   }
   .menu-category {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 22px 24px;
-    margin-bottom: 18px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 26px 26px 8px;
   }
-  .menu-category h3 {
-    margin: 0 0 2px;
-    color: var(--brand-dark);
+  .menu-category .cat-head {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    margin-bottom: 4px;
   }
-  .menu-note { font-size: 0.85rem; color: var(--muted); margin: 0 0 14px; }
+  .menu-category .cat-head svg.icon { color: var(--ember); font-size: 1.2rem; }
+  .menu-category h3 { color: var(--text); font-size: 1.05rem; }
+  .menu-note { font-size: 0.85rem; color: var(--text-muted); margin: 6px 0 14px; }
   .menu-item {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-bottom: 1px dashed #f0e2d3;
-    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
   }
   .menu-item:last-child { border-bottom: none; }
-  .menu-item .name { font-weight: 600; }
+  .menu-item .name { font-weight: 500; color: var(--text); }
   .menu-item .price {
-    color: var(--brand);
-    font-weight: 800;
+    color: var(--ember-light);
+    font-weight: 700;
     white-space: nowrap;
     padding-left: 12px;
+    font-variant-numeric: tabular-nums;
   }
 
   /* PHOTOS */
   .photo-placeholder {
-    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #fdf0e4 10px, #fdf0e4 20px);
-    border: 2px dashed #e8c9ac;
-    border-radius: 16px;
-    padding: 40px 20px;
+    background: var(--bg-elevated);
+    border: 1px dashed var(--border-strong);
+    border-radius: 20px;
+    padding: 48px 24px;
     text-align: center;
-    color: var(--muted);
+    color: var(--text-muted);
   }
-  .photo-placeholder .icon { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+  .photo-placeholder svg.icon { width: 2rem; height: 2rem; color: var(--ember); margin-bottom: 14px; }
+  .photo-placeholder a { color: var(--ember-light); font-weight: 600; }
 
-  /* REVIEWS */
-  .review-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
+  /* REVIEWS: CAROUSEL */
+  .review-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 4px 12px;
+    margin: 0 -4px;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+    mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+    scrollbar-width: none;
   }
+  .review-scroll::-webkit-scrollbar { display: none; }
   .review-card {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    position: relative;
-    transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+    flex: 0 0 auto;
+    width: min(320px, 82vw);
+    scroll-snap-align: start;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 22px;
+    transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out);
   }
   @media (hover: hover) and (pointer: fine) {
-    .review-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.1); }
+    .review-card:hover { transform: translateY(-3px); border-color: var(--border-strong); }
   }
-  .review-card .stars { color: #f0a500; margin-bottom: 8px; font-size: 0.95rem; }
-  .review-card p { font-size: 0.92rem; color: var(--text); margin: 0 0 12px; }
-  .review-card .author { font-weight: 700; color: var(--brand-dark); font-size: 0.9rem; }
-  .review-card .meta { font-size: 0.78rem; color: var(--muted); }
+  .review-card .stars { display: flex; gap: 2px; color: var(--ember); margin-bottom: 10px; }
+  .review-card .stars svg.icon { width: 0.95rem; height: 0.95rem; }
+  .review-card p { font-size: 0.93rem; color: var(--text); margin: 0 0 14px; line-height: 1.5; }
+  .review-card .author { font-weight: 700; color: var(--text); font-size: 0.9rem; }
+  .review-card .meta { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
 
-  /* VISIT / CONTACT */
+  .reveal.visible .review-scroll .review-card {
+    animation: cardIn 450ms var(--ease-out) backwards;
+  }
+  .review-scroll .review-card:nth-child(1) { animation-delay: 60ms; }
+  .review-scroll .review-card:nth-child(2) { animation-delay: 120ms; }
+  .review-scroll .review-card:nth-child(3) { animation-delay: 180ms; }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal.visible .review-scroll .review-card { animation: none; }
+  }
+
+  /* VISIT */
   .visit-box {
-    background: linear-gradient(135deg, var(--brand-dark), #4a1a0a);
-    color: #fff;
-    border-radius: 20px;
-    padding: 40px 28px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 44px 28px;
     text-align: center;
   }
-  .visit-box h2 { color: #fff; }
   .visit-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 14px;
     margin: 28px 0;
     text-align: left;
   }
   @media (max-width: 600px) { .visit-grid { grid-template-columns: 1fr; } }
   .visit-item {
-    background: rgba(255,255,255,0.1);
-    border-radius: 12px;
+    background: var(--bg-elevated-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
     padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
   }
-  .visit-item strong { display: block; color: var(--brand-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .visit-item svg.icon { color: var(--ember); font-size: 1.1rem; margin-top: 2px; }
+  .visit-item strong { display: block; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+  .visit-item div.val { color: var(--text); font-weight: 500; }
+  .visit-item a.val { color: var(--text); font-weight: 500; transition: color 150ms ease; }
+  @media (hover: hover) and (pointer: fine) {
+    .visit-item a.val:hover { color: var(--ember-light); }
+  }
 
   /* FLOATING WHATSAPP */
   .floating-wa {
     position: fixed;
     bottom: 22px;
     right: 22px;
-    background: #25D366;
-    color: #fff;
+    background: var(--whatsapp);
+    color: var(--whatsapp-text);
     width: 58px;
     height: 58px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    font-size: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     z-index: 200;
     animation: pulse 2.4s infinite;
     transition: transform 160ms var(--ease-out);
@@ -406,35 +513,71 @@
 
   footer {
     text-align: center;
-    padding: 28px 20px 100px;
-    color: var(--muted);
+    padding: 32px 20px 110px;
+    color: var(--text-muted);
     font-size: 0.82rem;
+    border-top: 1px solid var(--border);
   }
 </style>
 </head>
 <body>
 
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-flame" viewBox="0 0 256 256"><path d="M173.79,51.48a221.25,221.25,0,0,0-41.67-34.34,8,8,0,0,0-8.24,0A221.25,221.25,0,0,0,82.21,51.48C54.59,80.48,40,112.47,40,144a88,88,0,0,0,176,0C216,112.47,201.41,80.48,173.79,51.48ZM96,184c0-27.67,22.53-47.28,32-54.3,9.48,7,32,26.63,32,54.3a32,32,0,0,1-64,0Zm77.27,15.93A47.8,47.8,0,0,0,176,184c0-44-42.09-69.79-43.88-70.86a8,8,0,0,0-8.24,0C122.09,114.21,80,140,80,184a47.8,47.8,0,0,0,2.73,15.93A71.88,71.88,0,0,1,56,144c0-34.41,20.4-63.15,37.52-81.19A216.21,216.21,0,0,1,128,33.54a215.77,215.77,0,0,1,34.48,29.27C193.49,95.5,200,125,200,144A71.88,71.88,0,0,1,173.27,199.93Z"/></symbol>
+  <symbol id="icon-fork-knife" viewBox="0 0 256 256"><path d="M72,88V40a8,8,0,0,1,16,0V88a8,8,0,0,1-16,0ZM216,40V224a8,8,0,0,1-16,0V176H152a8,8,0,0,1-8-8,268.75,268.75,0,0,1,7.22-56.88c9.78-40.49,28.32-67.63,53.63-78.47A8,8,0,0,1,216,40ZM200,53.9c-32.17,24.57-38.47,84.42-39.7,106.1H200ZM119.89,38.69a8,8,0,1,0-15.78,2.63L112,88.63a32,32,0,0,1-64,0l7.88-47.31a8,8,0,1,0-15.78-2.63l-8,48A8.17,8.17,0,0,0,32,88a48.07,48.07,0,0,0,40,47.32V224a8,8,0,0,0,16,0V135.32A48.07,48.07,0,0,0,128,88a8.17,8.17,0,0,0-.11-1.31Z"/></symbol>
+  <symbol id="icon-heart" viewBox="0 0 256 256"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"/></symbol>
+  <symbol id="icon-moped" viewBox="0 0 256 256"><path d="M216,128a39.3,39.3,0,0,0-6.27.5L175.49,37.19A8,8,0,0,0,168,32H136a8,8,0,0,0,0,16h26.46l32.3,86.13a40.13,40.13,0,0,0-18,25.87H136.54l-25-66.81A8,8,0,0,0,104,88H24a8,8,0,0,0,0,16h8v13.39A56.12,56.12,0,0,0,0,168a8,8,0,0,0,8,8h8.8a40,40,0,0,0,78.4,0h81.6A40,40,0,1,0,216,128ZM42.67,130.27A8,8,0,0,0,48,122.73V104H98.46l21,56H16.81A40.07,40.07,0,0,1,42.67,130.27ZM56,192a24,24,0,0,1-22.62-16H78.62A24,24,0,0,1,56,192Zm160,0a24,24,0,0,1-15.43-42.36l7.94,21.17a8,8,0,0,0,15-5.62L215.55,144H216a24,24,0,0,1,0,48Z"/></symbol>
+  <symbol id="icon-map-pin" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 256 256"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></symbol>
+  <symbol id="icon-instagram" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Z"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></symbol>
+  <symbol id="icon-beer" viewBox="0 0 256 256"><path d="M104,104v80a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm40-8a8,8,0,0,0-8,8v80a8,8,0,0,0,16,0V104A8,8,0,0,0,144,96Zm96,16v64a24,24,0,0,1-24,24H200v8a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V72c0-30.88,28.71-56,64-56,16.77,0,32.91,5.8,44.82,16H160a40,40,0,0,1,40,40V88h16A24,24,0,0,1,240,112ZM57,64H182.62A24,24,0,0,0,160,48H145.74a8,8,0,0,1-5.53-2.22C131.06,37,117.87,32,104,32,80.82,32,61.43,45.76,57,64ZM184,208V80H56V208H184Zm40-96a8,8,0,0,0-8-8H200v80h16a8,8,0,0,0,8-8Z"/></symbol>
+  <symbol id="icon-cooking-pot" viewBox="0 0 256 256"><path d="M88,48V16a8,8,0,0,1,16,0V48a8,8,0,0,1-16,0Zm40,8a8,8,0,0,0,8-8V16a8,8,0,0,0-16,0V48A8,8,0,0,0,128,56Zm32,0a8,8,0,0,0,8-8V16a8,8,0,0,0-16,0V48A8,8,0,0,0,160,56Zm92.8,46.4L224,124v60a32,32,0,0,1-32,32H64a32,32,0,0,1-32-32V124L3.2,102.4a8,8,0,0,1,9.6-12.8L32,104V80a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8v24l19.2-14.4a8,8,0,0,1,9.6,12.8ZM208,88H48v96a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16Z"/></symbol>
+  <symbol id="icon-package" viewBox="0 0 256 256"><path d="M223.68,66.15,135.68,18a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32l80.34,44-29.77,16.3-80.35-44ZM128,120,47.66,76l33.9-18.56,80.34,44ZM40,90l80,43.78v85.79L40,175.82Zm176,85.78h0l-80,43.79V133.82l32-17.51V152a8,8,0,0,0,16,0V107.55L216,90v85.77Z"/></symbol>
+</svg>
+
 <nav>
-  <span class="brand">🔥 Parrilladas Andreita</span>
+  <span class="brand">
+    <svg class="icon" aria-hidden="true"><use href="#icon-flame"/></svg>
+    <span class="label">Parrilladas de la Marcel</span>
+  </span>
   <div class="links">
     <a href="#menu">Menú</a>
     <a href="#opiniones">Opiniones</a>
     <a href="#visitanos">Visítanos</a>
   </div>
-  <a class="cta-btn" href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener">Pedir ahora</a>
+  <a class="cta-btn" href="https://wa.me/593999517319?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20de%20la%20Marcel" target="_blank" rel="noopener">
+    <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+    Pedir ahora
+  </a>
 </nav>
 
 <header class="hero">
-  <h1>Parrilladas Andreita</h1>
-  <p class="tagline">Sabor criollo y asados al carbón en el corazón de Machala</p>
-  <div class="badge-row">
-    <span class="badge">⭐ 4.4 · 109 opiniones</span>
-    <span class="badge">🛵 Servicio a domicilio</span>
-    <span class="badge">📍 Av. Ferroviaria, Machala</span>
+  <div class="hero-content">
+    <div class="rating-strip">
+      <span class="stars">
+        <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+      </span>
+      4.7 de 5 · 37 opiniones en Google
+    </div>
+    <h1>Parrilladas de la Marcel</h1>
+    <p class="tagline">Sabor criollo y asados al carbón en el corazón de Machala. Mira el menú y pide directo por WhatsApp.</p>
+    <div class="cta-row">
+      <a class="btn btn-whatsapp" href="https://wa.me/593999517319?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20de%20la%20Marcel" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+        Pedir por WhatsApp
+      </a>
+      <a class="btn btn-outline" href="#menu">Ver menú</a>
+    </div>
   </div>
-  <div class="cta-row">
-    <a class="btn btn-primary" href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
-    <a class="btn btn-secondary" href="#menu">Ver menú</a>
+  <div class="hero-visual">
+    <svg class="icon flame-mark" aria-hidden="true"><use href="#icon-flame"/></svg>
   </div>
 </header>
 
@@ -442,121 +585,83 @@
 
   <section class="reveal">
     <h2 class="section-title">¿Por qué elegirnos?</h2>
-    <p class="section-sub">Lo que nuestros clientes repiten una y otra vez</p>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="icon">😋</div>
-        <h3>Sabor casero</h3>
-        <p>Comida criolla y asados preparados como en casa, con recetas tradicionales ecuatorianas.</p>
+    <p class="section-sub">Lo que nuestros clientes repiten una y otra vez en sus reseñas</p>
+    <div class="why-bento">
+      <div class="why-cell cell-large">
+        <div class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg></div>
+        <h3>Buena atención</h3>
+        <p class="quote">"Delicioso. Económico. Rica menestra. Buena atención."</p>
+        <span class="attrib">Pamela de R., Local Guide (107 opiniones)</span>
       </div>
-      <div class="why-card">
-        <div class="icon">💛</div>
-        <h3>Atención de familia</h3>
-        <p>"Las dueñas son muy atentas, amables y siempre te reciben con una sonrisa" — Eliza M.</p>
+      <div class="why-cell cell-1">
+        <div class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#icon-flame"/></svg></div>
+        <h3>Sabor casero al carbón</h3>
+        <p>Comida criolla y asados preparados con recetas tradicionales ecuatorianas.</p>
       </div>
-      <div class="why-card">
-        <div class="icon">🛵</div>
-        <h3>Llega a tu puerta</h3>
-        <p>Servicio a domicilio disponible todos los días que abrimos, de 5pm a 11pm.</p>
+      <div class="why-cell cell-2">
+        <div class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#icon-fork-knife"/></svg></div>
+        <h3>Variada y económica</h3>
+        <p>"Hay buena comida, variada." Secos, asados y acompañantes a buen precio.</p>
       </div>
     </div>
   </section>
 
-  <section class="reveal">
-    <div class="featured">
-      <div class="emoji">🍖</div>
-      <div>
-        <h3>Plato estrella</h3>
-        <blockquote>"Las costillas a la barbacoa son un manjar. Que debes probar."</blockquote>
-        <cite>— Eliza M., Local Guide (53 opiniones)</cite>
-      </div>
+  <div class="featured-wrap reveal">
+    <div class="featured-inner">
+      <svg class="icon" aria-hidden="true"><use href="#icon-flame"/></svg>
+      <div class="label">Lo que más nos recomiendan</div>
+      <blockquote>"Muy bueno y recomendable para todo el público en general, muy ricos los asados y secos, y aparte de ricos son económicos."</blockquote>
+      <div class="attrib">Italo Valdiviezo, Local Guide</div>
     </div>
-  </section>
+  </div>
 
   <section id="menu" class="reveal">
     <h2 class="section-title">Nuestro menú</h2>
-    <p class="section-sub">Martes a domingo · 5pm a 11pm</p>
+    <p class="section-sub">Platos mencionados por nuestros clientes. Precios sujetos a confirmación, escríbenos por WhatsApp.</p>
 
     <div class="menu-tabs">
-      <button class="menu-tab active" data-tab="criollo">Criollo</button>
-      <button class="menu-tab" data-tab="parrillero">Parrillero</button>
-      <button class="menu-tab" data-tab="costillas">Costillas BBQ</button>
-      <button class="menu-tab" data-tab="asados">Asados Mixtos</button>
-      <button class="menu-tab" data-tab="banderas">Banderas</button>
-      <button class="menu-tab" data-tab="extras">Adicionales</button>
-      <button class="menu-tab" data-tab="bebidas">Bebidas</button>
+      <button class="menu-tab active" data-tab="secos"><svg class="icon" aria-hidden="true"><use href="#icon-cooking-pot"/></svg>Secos</button>
+      <button class="menu-tab" data-tab="asados"><svg class="icon" aria-hidden="true"><use href="#icon-flame"/></svg>Asados</button>
+      <button class="menu-tab" data-tab="banderas"><svg class="icon" aria-hidden="true"><use href="#icon-fork-knife"/></svg>Banderas</button>
+      <button class="menu-tab" data-tab="extras"><svg class="icon" aria-hidden="true"><use href="#icon-package"/></svg>Acompañantes</button>
     </div>
 
-    <div class="menu-panel active" id="panel-criollo">
+    <div class="menu-panel active" id="panel-secos">
       <div class="menu-category">
-        <h3>🍗 Menú Criollo</h3>
-        <p class="menu-note">Acompañado de moros de lenteja o arroz amarillo, patacones, lechuga, aguacate y yuca.</p>
-        <div class="menu-item"><span class="name">Seco de Gallina</span><span class="price">$9,50</span></div>
-        <div class="menu-item"><span class="name">Seco de Carne (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-        <div class="menu-item"><span class="name">Carne Guisada (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-        <div class="menu-item"><span class="name">Lengua Guisada (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-        <div class="menu-item"><span class="name">Aguado de Gallina (con patacones)</span><span class="price">$5,00</span></div>
-      </div>
-    </div>
-
-    <div class="menu-panel" id="panel-parrillero">
-      <div class="menu-category">
-        <h3>🥩 Menú Parrillero</h3>
-        <p class="menu-note">Acompañado de arroz con menestra y patacones.</p>
-        <div class="menu-item"><span class="name">Carne Asada de Res (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-        <div class="menu-item"><span class="name">Lomo de Cerdo (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-        <div class="menu-item"><span class="name">Filete de Pechuga (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-        <div class="menu-item"><span class="name">Chuleta de Chancho (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
-      </div>
-    </div>
-
-    <div class="menu-panel" id="panel-costillas">
-      <div class="menu-category">
-        <h3>🔥 Costillas Asadas en Salsa BBQ</h3>
-        <p class="menu-note">Incluye arroz con menestra, ensalada, yuca, patacones, papa chaucha y aguacate.</p>
-        <div class="menu-item"><span class="name">Personal</span><span class="price">$15,00</span></div>
-        <div class="menu-item"><span class="name">Doble</span><span class="price">$20,00</span></div>
-        <div class="menu-item"><span class="name">Familiar</span><span class="price">$30,00</span></div>
+        <div class="cat-head"><svg class="icon" aria-hidden="true"><use href="#icon-cooking-pot"/></svg><h3>Secos</h3></div>
+        <p class="menu-note">Preparados al estilo criollo, con menestra de fréjol.</p>
+        <div class="menu-item"><span class="name">Seco de Carne</span></div>
+        <div class="menu-item"><span class="name">Seco de Pollo</span></div>
+        <div class="menu-item"><span class="name">Seco de Chancho</span></div>
+        <div class="menu-item"><span class="name">Seco de Guata</span></div>
       </div>
     </div>
 
     <div class="menu-panel" id="panel-asados">
       <div class="menu-category">
-        <h3>🍢 Asados Mixtos</h3>
-        <p class="menu-note">2 carnes a elección, con ensalada, yuca, patacones, aguacate y papa chaucha.</p>
-        <div class="menu-item"><span class="name">Grande</span><span class="price">$10,00</span></div>
-        <div class="menu-item"><span class="name">Pequeño</span><span class="price">$8,00</span></div>
+        <div class="cat-head"><svg class="icon" aria-hidden="true"><use href="#icon-flame"/></svg><h3>Asados</h3></div>
+        <p class="menu-note">Al carbón, acompañados de arroz moro o blanco.</p>
+        <div class="menu-item"><span class="name">Carne Asada</span></div>
+        <div class="menu-item"><span class="name">Chuleta Asada</span></div>
+        <div class="menu-item"><span class="name">Costilla</span></div>
       </div>
     </div>
 
     <div class="menu-panel" id="panel-banderas">
       <div class="menu-category">
-        <h3>🇪🇨 Banderas</h3>
-        <p class="menu-note">Acompañado de moros de lenteja o arroz amarillo, patacones, lechuga, aguacate y yuca.</p>
-        <div class="menu-item"><span class="name">2 secos a elección</span><span class="price">$16,00</span></div>
+        <div class="cat-head"><svg class="icon" aria-hidden="true"><use href="#icon-fork-knife"/></svg><h3>Banderas</h3></div>
+        <p class="menu-note">Combinados de varios platos en un solo plato.</p>
+        <div class="menu-item"><span class="name">Bandera (combinado a elección)</span></div>
       </div>
     </div>
 
     <div class="menu-panel" id="panel-extras">
       <div class="menu-category">
-        <h3>🍚 Adicionales</h3>
-        <div class="menu-item"><span class="name">Arroz con menestra (pequeño)</span><span class="price">$3,50</span></div>
-        <div class="menu-item"><span class="name">Arroz con menestra (grande)</span><span class="price">$5,00</span></div>
-        <div class="menu-item"><span class="name">Porción de patacones</span><span class="price">$1,50</span></div>
-        <div class="menu-item"><span class="name">Porción de menestra (medio litro)</span><span class="price">$3,00</span></div>
-        <div class="menu-item"><span class="name">Porción de menestra (1 litro)</span><span class="price">$6,00</span></div>
-        <div class="menu-item"><span class="name">Porción de ensalada</span><span class="price">$1,50</span></div>
-      </div>
-    </div>
-
-    <div class="menu-panel" id="panel-bebidas">
-      <div class="menu-category">
-        <h3>🥤 Bebidas</h3>
-        <div class="menu-item"><span class="name">Horchata (vaso)</span><span class="price">$1,50</span></div>
-        <div class="menu-item"><span class="name">Horchata (jarra pequeña)</span><span class="price">$3,00</span></div>
-        <div class="menu-item"><span class="name">Horchata (jarra grande)</span><span class="price">$6,00</span></div>
-        <div class="menu-item"><span class="name">Cola</span><span class="price">$1,00</span></div>
-        <div class="menu-item"><span class="name">Agua sin gas</span><span class="price">$1,00</span></div>
+        <div class="cat-head"><svg class="icon" aria-hidden="true"><use href="#icon-package"/></svg><h3>Acompañantes</h3></div>
+        <div class="menu-item"><span class="name">Arroz moro o blanco</span></div>
+        <div class="menu-item"><span class="name">Menestra de fréjol</span></div>
+        <div class="menu-item"><span class="name">Ensalada de fideos con mayonesa</span></div>
+        <div class="menu-item"><span class="name">Ensalada de rábano</span></div>
       </div>
     </div>
   </section>
@@ -565,32 +670,50 @@
     <h2 class="section-title">Fotos</h2>
     <p class="section-sub">Pronto vas a poder ver nuestros platos aquí</p>
     <div class="photo-placeholder">
-      <span class="icon">📸</span>
-      Galería de fotos en camino — síguenos en Instagram @parrilladasandreita mientras tanto.
+      <svg class="icon" aria-hidden="true"><use href="#icon-package"/></svg>
+      <div>Galería de fotos en camino.</div>
     </div>
   </section>
 
   <section id="opiniones" class="reveal">
     <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-    <p class="section-sub">⭐ 4.4 de 5 · 109 opiniones en Google</p>
-    <div class="review-grid">
+    <p class="section-sub">4.7 de 5 · 37 opiniones en Google</p>
+    <div class="review-scroll">
       <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"La lengua más deliciosa que hemos probado, y dan bien puesto. Por cierto, muy buena atención de la dueña."</p>
-        <div class="author">Ram L.</div>
-        <div class="meta">8 opiniones · 10 fotos · hace un mes</div>
+        <div class="stars">
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+        </div>
+        <p>"Costilla, carne, chuleta, seco de carne, chancho, pollo, guata, bandera. Rica menestra, buena atención."</p>
+        <div class="author">Pamela de R.</div>
+        <div class="meta">Local Guide · hace 8 años</div>
       </div>
       <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"El restaurante es totalmente acogedor. Las dueñas son muy atentas, amables y siempre te reciben con una sonrisa. Las costillas a la barbacoa son un manjar."</p>
-        <div class="author">Eliza M.</div>
-        <div class="meta">Local Guide · 53 opiniones · hace 2 años</div>
+        <div class="stars">
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+        </div>
+        <p>"Buena comida, variada: seco de carne, pollo, chancho, guata, costilla. Arroz moro y menestra de fréjol muy buena."</p>
+        <div class="author">marcosdarior</div>
+        <div class="meta">Local Guide · hace 8 años</div>
       </div>
       <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Excelente comida y atención. Precio por persona: $5-10."</p>
-        <div class="author">Alberto A.</div>
-        <div class="meta">Local Guide · 78 opiniones · hace 4 meses</div>
+        <div class="stars">
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+        </div>
+        <p>"Muy bueno y recomendable para todo el público en general, muy ricos los asados y secos, aparte de ricos son económicos."</p>
+        <div class="author">Italo V.</div>
+        <div class="meta">Local Guide · hace 5 años</div>
       </div>
     </div>
   </section>
@@ -598,44 +721,65 @@
   <section id="visitanos" class="reveal">
     <div class="visit-box">
       <h2 class="section-title">Visítanos</h2>
-      <p class="section-sub" style="color:#f3d9c4">Te esperamos de martes a domingo</p>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;text-align:center;">Te esperamos de martes a domingo</p>
       <div class="visit-grid">
         <div class="visit-item">
-          <strong>Dirección</strong>
-          P3M4+45P, Av. Ferroviaria, Machala
+          <svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg>
+          <div>
+            <strong>Dirección</strong>
+            <div class="val">P2WW+55, Av. 9 de Mayo, Marcel Laniado, Machala</div>
+          </div>
         </div>
         <div class="visit-item">
-          <strong>Horario</strong>
-          Martes a Domingo · 5pm a 11pm
+          <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+          <div>
+            <strong>Horario</strong>
+            <div class="val">Cierra a las 10 p.m. (confirmar horario completo)</div>
+          </div>
         </div>
         <div class="visit-item">
-          <strong>Teléfono</strong>
-          <a href="tel:+59372982475">(07) 298-2475</a>
+          <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+          <div>
+            <strong>Teléfono</strong>
+            <a class="val" href="tel:+593999517319">099 951 7319</a>
+          </div>
         </div>
         <div class="visit-item">
-          <strong>Delivery</strong>
-          <a href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener">0969498991</a>
+          <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+          <div>
+            <strong>WhatsApp</strong>
+            <a class="val" href="https://wa.me/593999517319?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20de%20la%20Marcel" target="_blank" rel="noopener">099 951 7319</a>
+          </div>
         </div>
       </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
-        <a class="btn btn-secondary" href="tel:+59372982475">📞 Llamar</a>
-        <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=P3M4%2B45P+Machala" target="_blank" rel="noopener">📍 Cómo llegar</a>
-        <a class="btn btn-secondary" href="https://instagram.com/parrilladasandreita" target="_blank" rel="noopener">📷 Instagram</a>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-whatsapp" href="https://wa.me/593999517319?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20de%20la%20Marcel" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+          Pedir por WhatsApp
+        </a>
+        <a class="btn btn-outline" href="tel:+593999517319">
+          <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+          Llamar
+        </a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=P2WW%2B55+Machala" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg>
+          Cómo llegar
+        </a>
       </div>
     </div>
   </section>
 
 </main>
 
-<a class="floating-wa" href="https://wa.me/593969498991?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20Andreita" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">💬</a>
+<a class="floating-wa" href="https://wa.me/593999517319?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Parrilladas%20de%20la%20Marcel" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+  <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+</a>
 
 <footer>
-  Parrilladas Andreita · Comida criolla y asados en Machala · Página de promoción
+  Parrilladas de la Marcel. Comida criolla y asados en Machala.
 </footer>
 
 <script>
-  // Tabs del menú
   document.querySelectorAll('.menu-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
@@ -645,7 +789,6 @@
     });
   });
 
-  // Animación de aparición al hacer scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
