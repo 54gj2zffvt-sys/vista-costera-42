@@ -16,6 +16,8 @@
     --card: #ffffff;
     --text: #2b2420;
     --muted: #8a7a6f;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -55,7 +57,10 @@
     font-size: 0.9rem;
     font-weight: 600;
   }
-  nav .links a:hover { color: var(--brand); }
+  nav .links a { transition: color 150ms ease; }
+  @media (hover: hover) and (pointer: fine) {
+    nav .links a:hover { color: var(--brand); }
+  }
   nav .cta-btn {
     background: #25D366;
     color: #fff;
@@ -64,7 +69,10 @@
     font-weight: 700;
     font-size: 0.85rem;
     white-space: nowrap;
+    display: inline-block;
+    transition: transform 150ms var(--ease-out);
   }
+  nav .cta-btn:active { transform: scale(0.95); }
   @media (max-width: 700px) {
     nav .links { display: none; }
   }
@@ -132,9 +140,12 @@
     border-radius: 30px;
     font-weight: 700;
     font-size: 1rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
   }
-  .btn:hover { transform: translateY(-2px); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover { transform: translateY(-2px); }
+  }
+  .btn:active { transform: scale(0.97); }
   .btn-primary {
     background: #25D366;
     color: #fff;
@@ -151,10 +162,29 @@
   section { padding: 60px 0; }
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(20px);
+    transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transform: none; transition: opacity 400ms ease; }
+  }
+
+  .reveal.visible .why-grid .why-card,
+  .reveal.visible .review-grid .review-card {
+    animation: cardIn 450ms var(--ease-out) backwards;
+  }
+  .why-grid .why-card:nth-child(1), .review-grid .review-card:nth-child(1) { animation-delay: 60ms; }
+  .why-grid .why-card:nth-child(2), .review-grid .review-card:nth-child(2) { animation-delay: 120ms; }
+  .why-grid .why-card:nth-child(3), .review-grid .review-card:nth-child(3) { animation-delay: 180ms; }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal.visible .why-grid .why-card,
+    .reveal.visible .review-grid .review-card { animation: none; }
+  }
 
   h2.section-title {
     text-align: center;
@@ -181,6 +211,10 @@
     padding: 24px 18px;
     text-align: center;
     box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.1); }
   }
   .why-card .icon { font-size: 2.2rem; margin-bottom: 10px; }
   .why-card h3 { margin: 0 0 6px; color: var(--brand-dark); font-size: 1.05rem; }
@@ -230,16 +264,29 @@
     font-size: 0.85rem;
     cursor: pointer;
     color: var(--muted);
-    transition: all 0.15s ease;
+    transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out), transform 150ms var(--ease-out);
   }
-  .menu-tab:hover { border-color: var(--brand); color: var(--brand); }
+  @media (hover: hover) and (pointer: fine) {
+    .menu-tab:hover { border-color: var(--brand); color: var(--brand); }
+  }
+  .menu-tab:active { transform: scale(0.96); }
   .menu-tab.active {
     background: var(--brand);
     border-color: var(--brand);
     color: #fff;
   }
   .menu-panel { display: none; }
-  .menu-panel.active { display: block; }
+  .menu-panel.active {
+    display: block;
+    animation: panelIn 200ms var(--ease-out);
+  }
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .menu-panel.active { animation: none; }
+  }
   .menu-category {
     background: var(--card);
     border-radius: 16px;
@@ -294,6 +341,10 @@
     padding: 20px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     position: relative;
+    transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.1); }
   }
   .review-card .stars { color: #f0a500; margin-bottom: 8px; font-size: 0.95rem; }
   .review-card p { font-size: 0.92rem; color: var(--text); margin: 0 0 12px; }
@@ -341,11 +392,16 @@
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
     z-index: 200;
     animation: pulse 2.4s infinite;
+    transition: transform 160ms var(--ease-out);
   }
+  .floating-wa:active { transform: scale(0.93); }
   @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
     70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
     100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .floating-wa { animation: none; }
   }
 
   footer {
