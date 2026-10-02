@@ -93,6 +93,37 @@
     color: #888;
     margin-bottom: 8px;
   }
+  .menu-category {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .menu-category h3 {
+    margin: 0 0 4px;
+    color: var(--brand);
+  }
+  .menu-note {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0 0 12px;
+  }
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #eee;
+    padding: 6px 0;
+  }
+  .menu-item .name {
+    font-weight: 600;
+  }
+  .menu-item .price {
+    color: var(--brand-dark);
+    font-weight: bold;
+    white-space: nowrap;
+    padding-left: 12px;
+  }
   footer {
     text-align: center;
     padding: 20px;
@@ -123,11 +154,19 @@
       </div>
       <div class="info-card">
         <strong>Horario</strong>
-        Abierto · Cierra a las 5 p.m.
+        Martes a Domingo · 5pm a 11pm
       </div>
       <div class="info-card">
         <strong>Precio aproximado</strong>
         $5 - $10 por persona
+      </div>
+      <div class="info-card">
+        <strong>Servicio a domicilio</strong>
+        0969498991
+      </div>
+      <div class="info-card">
+        <strong>Instagram</strong>
+        @parrilladasandreita
       </div>
     </div>
   </section>
@@ -141,8 +180,64 @@
 
   <section>
     <h2>Menú</h2>
-    <div class="placeholder">
-      Menú pendiente de recibir. Platos mencionados por clientes: lengua, costillas a la barbacoa, comida criolla.
+
+    <div class="menu-category">
+      <h3>Menú Criollo</h3>
+      <p class="menu-note">Acompañado de moros de lenteja o arroz amarillo, patacones, lechuga, aguacate y yuca.</p>
+      <div class="menu-item"><span class="name">Seco de Gallina</span><span class="price">$9,50</span></div>
+      <div class="menu-item"><span class="name">Seco de Carne (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+      <div class="menu-item"><span class="name">Carne Guisada (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+      <div class="menu-item"><span class="name">Lengua Guisada (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+      <div class="menu-item"><span class="name">Aguado de Gallina (con patacones)</span><span class="price">$5,00</span></div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Menú Parrillero</h3>
+      <p class="menu-note">Acompañado de arroz con menestra y patacones.</p>
+      <div class="menu-item"><span class="name">Carne Asada de Res (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+      <div class="menu-item"><span class="name">Lomo de Cerdo (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+      <div class="menu-item"><span class="name">Filete de Pechuga (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+      <div class="menu-item"><span class="name">Chuleta de Chancho (peq / grande)</span><span class="price">$7,50 / $9,50</span></div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Costillas Asadas en Salsa BBQ</h3>
+      <p class="menu-note">Incluye arroz con menestra, ensalada, yuca, patacones, papa chaucha y aguacate.</p>
+      <div class="menu-item"><span class="name">Personal</span><span class="price">$15,00</span></div>
+      <div class="menu-item"><span class="name">Doble</span><span class="price">$20,00</span></div>
+      <div class="menu-item"><span class="name">Familiar</span><span class="price">$30,00</span></div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Asados Mixtos</h3>
+      <p class="menu-note">2 carnes a elección, con ensalada, yuca, patacones, aguacate y papa chaucha.</p>
+      <div class="menu-item"><span class="name">Grande</span><span class="price">$10,00</span></div>
+      <div class="menu-item"><span class="name">Pequeño</span><span class="price">$8,00</span></div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Banderas</h3>
+      <p class="menu-note">Acompañado de moros de lenteja o arroz amarillo, patacones, lechuga, aguacate y yuca.</p>
+      <div class="menu-item"><span class="name">2 secos a elección</span><span class="price">$16,00</span></div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Adicionales</h3>
+      <div class="menu-item"><span class="name">Arroz con menestra (pequeño)</span><span class="price">$3,50</span></div>
+      <div class="menu-item"><span class="name">Arroz con menestra (grande)</span><span class="price">$5,00</span></div>
+      <div class="menu-item"><span class="name">Porción de patacones</span><span class="price">$1,50</span></div>
+      <div class="menu-item"><span class="name">Porción de menestra (medio litro)</span><span class="price">$3,00</span></div>
+      <div class="menu-item"><span class="name">Porción de menestra (1 litro)</span><span class="price">$6,00</span></div>
+      <div class="menu-item"><span class="name">Porción de ensalada</span><span class="price">$1,50</span></div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Bebidas</h3>
+      <div class="menu-item"><span class="name">Horchata (vaso)</span><span class="price">$1,50</span></div>
+      <div class="menu-item"><span class="name">Horchata (jarra pequeña)</span><span class="price">$3,00</span></div>
+      <div class="menu-item"><span class="name">Horchata (jarra grande)</span><span class="price">$6,00</span></div>
+      <div class="menu-item"><span class="name">Cola</span><span class="price">$1,00</span></div>
+      <div class="menu-item"><span class="name">Agua sin gas</span><span class="price">$1,00</span></div>
     </div>
   </section>
 
